@@ -1,0 +1,500 @@
+{
+	"info": {
+		"_postman_id": "e7ddc595-7b75-408d-91d4-fbc46a287666",
+		"name": "stock",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"email\": \"md@xyz.com.tr\",\r\n            \"firstName\": \"Mustafa\",\r\n            \"lastName\": \"Durmuş\",\r\n            \"password\": \"123456\",\r\n            \"roles\": [\"USER\", \"CUSTOMER\"]\r\n        }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/user/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"user",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"password\": \"123456\"\r\n        }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"email\": \"md2@xyz.com.tr\",\r\n            \"password\": \"1234567\",\r\n        }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/user/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"user",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/user/get/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"user",
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMTIzNDU2Iiwic3ViIjoibXVzdGFmYSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NTY3OTU5NDUsImV4cCI6MTY1Njc5NjU0NX0.AMhypsIPPHUvT5gj800FtpViO_QgSUKCmXXyNtwcCsHq37hRhNnrSGgwBHe5AjfXlaXyEE7cbxbkNzjRpDtovA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/IS97510/Desktop/Screenshot 2022-04-27 100653.png"
+						},
+						{
+							"key": "code",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/image/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"image",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Image 2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/IS97510/Desktop/yeni_ms_cizim.png"
+						},
+						{
+							"key": "code",
+							"value": "test2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/image/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"image",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Image",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/IS97510/Desktop/mudo-logo.png"
+						},
+						{
+							"key": "code",
+							"value": "test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/image/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"image",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image By Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/image/get/test",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"image",
+						"get",
+						"test"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTOS\": [\r\n        {\r\n            \"type\": \"type\",\r\n            \"name\": \"name\",\r\n            \"imageCode\": \"test\",\r\n            \"amount\": 100\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/product/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"product",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTOS\": [\r\n        {\r\n            \"type\": \"type\",\r\n            \"name\": \"name\",\r\n            \"imageCode\": \"test2\",\r\n            \"amount\": 200\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/product/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"product",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product By Type and Name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/product/get/type/name",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"product",
+						"get",
+						"type",
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/product/get/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"product",
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Rate USD-EUR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTOS\": [\r\n        {\r\n            \"currencyCode\": \"USD\",\r\n            \"rate\": 14\r\n        },\r\n        {\r\n            \"currencyCode\": \"EUR\",\r\n            \"rate\": 17\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/rate/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"rate",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Rate STR",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTOS\": [\r\n        {\r\n            \"currencyCode\": \"STR\",\r\n            \"rate\": 10\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/rate/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"rate",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Rate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTOS\": [\r\n        {\r\n            \"currencyCode\": \"USD\",\r\n            \"rate\": 15\r\n        },\r\n        {\r\n            \"currencyCode\": \"STR\",\r\n            \"rate\": 20\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/rate/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"rate",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Rate By Currency",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/rate/get/USD",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"rate",
+						"get",
+						"USD"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Rates",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/rate/get/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"rate",
+						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

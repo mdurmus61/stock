@@ -1,0 +1,4 @@
+INSERT INTO stock.role (create_date, created_user_id, initiated_from_computer, modified_date, modified_from_computer, modified_user_id, name) VALUES(current_timestamp, 0, 'localhost', NULL, NULL, NULL, 'ADMIN');
+INSERT INTO stock.role (create_date, created_user_id, initiated_from_computer, modified_date, modified_from_computer, modified_user_id, name) VALUES(current_timestamp, 0, 'localhost', NULL, NULL, NULL, 'CUSTOMER');
+INSERT INTO stock.role (create_date, created_user_id, initiated_from_computer, modified_date, modified_from_computer, modified_user_id, name) VALUES(current_timestamp, 0, 'localhost', NULL, NULL, NULL, 'USER');
+INSERT INTO stock.role (create_date, created_user_id, initiated_from_computer, modified_date, modified_from_computer, modified_user_id, name) VALUES(current_timestamp, 0, 'localhost', NULL, NULL, NULL, 'OWNER');
