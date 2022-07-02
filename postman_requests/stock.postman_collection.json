@@ -36,43 +36,13 @@
 			"response": []
 		},
 		{
-			"name": "Login",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"password\": \"123456\"\r\n        }\r\n    \r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:9061/api/user/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "9061",
-					"path": [
-						"api",
-						"user",
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Update User",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"email\": \"md2@xyz.com.tr\",\r\n            \"password\": \"1234567\",\r\n        }\r\n    \r\n}",
+					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"email\": \"md2@xyz.com.tr\",\r\n            \"password\": \"1234567\"\r\n        }\r\n    \r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -96,12 +66,21 @@
 			"response": []
 		},
 		{
-			"name": "Get All Users",
+			"name": "Login",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"password\": \"1234567\"\r\n        }\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "http://localhost:9061/api/user/get/all",
+					"raw": "http://localhost:9061/api/user/login",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -110,7 +89,27 @@
 					"path": [
 						"api",
 						"user",
-						"get",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/user/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"user",
 						"all"
 					]
 				}
@@ -121,14 +120,7 @@
 			"name": "Create Image",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiIxMTIzNDU2Iiwic3ViIjoibXVzdGFmYSIsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJpYXQiOjE2NTY3OTU5NDUsImV4cCI6MTY1Njc5NjU0NX0.AMhypsIPPHUvT5gj800FtpViO_QgSUKCmXXyNtwcCsHq37hRhNnrSGgwBHe5AjfXlaXyEE7cbxbkNzjRpDtovA",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
@@ -346,7 +338,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9061/api/product/get/all",
+					"raw": "http://localhost:9061/api/product/all",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -355,7 +347,6 @@
 					"path": [
 						"api",
 						"product",
-						"get",
 						"all"
 					]
 				}
@@ -480,7 +471,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:9061/api/rate/get/all",
+					"raw": "http://localhost:9061/api/rate/all",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -489,7 +480,123 @@
 					"path": [
 						"api",
 						"rate",
-						"get",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Warehouse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"createDTOS\": [\r\n        {\r\n            \"address\": \"Kirazlıtepe Mah.\",\r\n            \"district\": \"ÜSKÜDAR\",\r\n            \"city\": \"İSTANBUL\",\r\n            \"code\": \"Depo1\",\r\n            \"name\": \"Depo1\"\r\n        },\r\n        {\r\n            \"address\": \"Çankaya Mah.\",\r\n            \"district\": \"ÇANKAYA\",\r\n            \"city\": \"ANKARA\",\r\n            \"code\": \"Depo2\",\r\n            \"name\": \"Depo2\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9061/api/warehouse/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"warehouse",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Warehouse By Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/warehouse/code/depo1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"warehouse",
+						"code",
+						"depo1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Warehouse By District",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/warehouse/district/ÇANKAYA",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"warehouse",
+						"district",
+						"ÇANKAYA"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Warehouse By City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/warehouse/city/İSTANBUL",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"warehouse",
+						"city",
+						"İSTANBUL"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Warehouse",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9061/api/warehouse/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9061",
+					"path": [
+						"api",
+						"warehouse",
 						"all"
 					]
 				}
