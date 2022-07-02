@@ -1,19 +1,12 @@
 package services.stock.dto;
 
+import services.stock.dto.base.BaseDTO;
+
 import java.math.BigDecimal;
 
-public class RateDefinitionDTO {
-    private Long id;
+public class RateDefinitionDTO extends BaseDTO {
     private String currencyCode;
     private BigDecimal rate;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getCurrencyCode() {
         return currencyCode;

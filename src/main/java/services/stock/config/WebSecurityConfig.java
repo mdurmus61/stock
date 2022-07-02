@@ -22,9 +22,11 @@ public class WebSecurityConfig {
          http.csrf().disable()
                 .addFilterAfter(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                .antMatchers(HttpMethod.POST, "/api/user/**").permitAll()
+                /*.antMatchers(HttpMethod.POST, "/api/user/**").permitAll()
                 .antMatchers(HttpMethod.GET, "/api/user/**").permitAll()
-                .anyRequest().authenticated();
+                */.antMatchers(HttpMethod.GET, "/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/**").permitAll()
+                 .anyRequest().authenticated();
 
          return http.build();
     }

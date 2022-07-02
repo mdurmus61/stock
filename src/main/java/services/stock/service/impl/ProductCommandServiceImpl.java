@@ -3,6 +3,7 @@ package services.stock.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import services.stock.dto.ProductDTO;
+import services.stock.entity.Image;
 import services.stock.entity.Product;
 import services.stock.repository.ImageRepository;
 import services.stock.repository.ProductRepository;
@@ -28,7 +29,10 @@ public class ProductCommandServiceImpl implements ProductCommandService {
     public List<ProductDTO> createProducts(List<ProductDTO> createDTOS) {
         List<ProductDTO> list = new ArrayList<>();
         for(ProductDTO dto: createDTOS) {
-            list.add(productRepository.save(new Product().fromDTO(imageRepository, dto)).toDTO());
+            Image image = imageRepository.findOneByCode(dto.getImageCode());
+            Product product = new Product().fromDTO(dto);
+            product.setImage(image);
+            list.add(productRepository.save(product).toDTO());
         }
 
         return list;

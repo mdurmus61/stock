@@ -54,9 +54,9 @@ public class RateController {
         return new CreateRatesResponse(idGenerator.getString(), queryService.getRateByCode(currencyCode));
     }
 
-    @GetMapping(value = "/get/all", consumes = MediaType.ALL_VALUE)
+    @GetMapping(value = "/all", consumes = MediaType.ALL_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    @ApiOperation(value = "", notes = "Get Rate By Code")
+    @ApiOperation(value = "", notes = "Get All Rates")
     public CreateRatesResponse getAllRates(){
         return new CreateRatesResponse(idGenerator.getString(), queryService.getAllRates());
     }

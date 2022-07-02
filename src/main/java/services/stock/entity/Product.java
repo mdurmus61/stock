@@ -3,7 +3,6 @@ package services.stock.entity;
 import services.stock.dto.ProductDTO;
 import services.stock.entity.base.BaseEntity;
 import services.stock.repository.ImageRepository;
-import services.stock.repository.layer.StockRepositoryLayer;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -73,12 +72,11 @@ public class Product extends BaseEntity {
         return dto;
     }
 
-    public Product fromDTO(ImageRepository imageRepository, ProductDTO dto) {
+    public Product fromDTO(ProductDTO dto) {
         this.applyEntityStamps();
         setType(dto.getType());
         setAmount(dto.getAmount());
         setName(dto.getName());
-        setImage(imageRepository.findOneByCode(dto.getImageCode()));
         return this;
     }
 }

@@ -1,8 +1,8 @@
-package services.stock.repository;
+package services.stock.repository.metadata;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import services.stock.entity.Role;
+import services.stock.entity.metadata.Role;
 
 import java.util.Set;
 

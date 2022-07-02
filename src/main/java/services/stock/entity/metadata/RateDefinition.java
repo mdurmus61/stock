@@ -1,4 +1,4 @@
-package services.stock.entity;
+package services.stock.entity.metadata;
 
 import services.stock.dto.RateDefinitionDTO;
 import services.stock.entity.base.BaseEntity;

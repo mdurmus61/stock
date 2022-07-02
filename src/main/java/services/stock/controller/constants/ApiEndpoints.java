@@ -13,6 +13,7 @@ public final class ApiEndpoints {
     public static final String STOCK_API = API_BASE_URL + "/stock";
     public static final String RATE_API = API_BASE_URL + "/rate";
     public static final String PRODUCT_API = API_BASE_URL + "/product";
+    public static final String WAREHOUSE_API = API_BASE_URL + "/warehouse";
 
 
     public static final ApiEndpoints instance = new ApiEndpoints();

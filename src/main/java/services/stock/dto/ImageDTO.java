@@ -1,13 +1,10 @@
 package services.stock.dto;
 
-public class ImageDTO {
-    private Long id;
+import services.stock.dto.base.BaseDTO;
+
+public class ImageDTO extends BaseDTO {
     private String code;
     private byte[] image;
-
-    public Long getId() { return id; }
-
-    public void setId(Long id) { this.id = id; }
 
     public String getCode() {
         return code;

@@ -1,11 +1,10 @@
 package services.stock.dto;
 
-import services.stock.entity.Role;
+import services.stock.dto.base.BaseDTO;
 
 import java.util.Set;
 
-public class UserDTO {
-    private Long id;
+public class UserDTO extends BaseDTO {
     private String userName;
     private String email;
     private String phoneNumber;
@@ -14,10 +13,6 @@ public class UserDTO {
     private String password;
     private String token;
     private Set<String> roles;
-
-    public Long getId() { return id; }
-
-    public void setId(Long id) { this.id = id; }
 
     public String getUserName() { return userName; }
 

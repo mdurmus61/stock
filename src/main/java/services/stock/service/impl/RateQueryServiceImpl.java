@@ -3,8 +3,8 @@ package services.stock.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import services.stock.dto.RateDefinitionDTO;
-import services.stock.entity.RateDefinition;
-import services.stock.repository.RateDefinitionRepository;
+import services.stock.entity.metadata.RateDefinition;
+import services.stock.repository.metadata.RateDefinitionRepository;
 import services.stock.service.RateQueryService;
 
 import javax.transaction.Transactional;

@@ -2,6 +2,7 @@ package services.stock.entity;
 
 import services.stock.dto.UserDTO;
 import services.stock.entity.base.BaseEntity;
+import services.stock.entity.metadata.Role;
 import services.stock.util.PasswordUtil;
 
 import javax.persistence.*;

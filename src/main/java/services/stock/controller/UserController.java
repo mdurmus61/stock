@@ -1,6 +1,8 @@
 package services.stock.controller;
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import services.stock.controller.constants.ApiEndpoints;
@@ -29,22 +31,30 @@ public class UserController {
         this.userQueryService = userQueryService;
     }
 
-    @PostMapping("/create")
+    @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "", notes = "Create User")
     public UserResponse createUser(@Valid @RequestBody CreateUserRequest request) {
         return new UserResponse(idGenerator.getString(), userCommandService.createUser(request.getCreateDTO()));
     }
 
-    @PostMapping("/update")
+    @PostMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "", notes = "Update User")
     public UserResponse updateUser(@Valid @RequestBody CreateUserRequest request) {
         return new UserResponse(idGenerator.getString(), userCommandService.updateUser(request.getCreateDTO()));
     }
 
     @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "", notes = "Login")
     public UserResponse login(@Valid @RequestBody CreateUserRequest request) {
         return new UserResponse(idGenerator.getString(), userCommandService.login(request.getCreateDTO()));
     }
 
-    @GetMapping(value = "/get/all", consumes = MediaType.ALL_VALUE)
+    @GetMapping(value = "/all", consumes = MediaType.ALL_VALUE)
+    @ResponseStatus(HttpStatus.OK)
+    @ApiOperation(value = "", notes = "Get All Users")
     public UsersResponse getAllUsers(){
         return new UsersResponse(idGenerator.getString(), userQueryService.getAllUsers());
     }

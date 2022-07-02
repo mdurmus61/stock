@@ -50,7 +50,7 @@ public class ProductController {
         return new CreateProductsResponse(idGenerator.getString(), queryService.getProductByTypeAndName(type, name));
     }
 
-    @GetMapping(value = "/get/all", consumes = MediaType.ALL_VALUE)
+    @GetMapping(value = "/all", consumes = MediaType.ALL_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "", notes = "Get All Products")
     public CreateProductsResponse getAllProducts(){

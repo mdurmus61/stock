@@ -1,22 +1,15 @@
 package services.stock.dto;
 
+import services.stock.dto.base.BaseDTO;
+
 import java.math.BigDecimal;
 
-public class ProductDTO {
-    private Long id;
+public class ProductDTO extends BaseDTO {
     private String type;
     private String name;
     private String imageCode;
     private BigDecimal amount;
     private ImageDTO image;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getType() {
         return type;
