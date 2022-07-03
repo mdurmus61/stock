@@ -7,5 +7,5 @@ public interface UserCommandService {
 
     UserDTO updateUser(UserDTO createDTO);
 
-    UserDTO login(UserDTO createDTO);
+    UserDTO login(String username, String password);
 }

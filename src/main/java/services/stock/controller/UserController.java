@@ -12,7 +12,6 @@ import services.stock.response.UsersResponse;
 import services.stock.service.UserCommandService;
 import services.stock.service.UserQueryService;
 import services.stock.util.IdGenerator;
-import services.stock.util.JwtUtils;
 
 import javax.validation.Valid;
 
@@ -45,11 +44,11 @@ public class UserController {
         return new UserResponse(idGenerator.getString(), userCommandService.updateUser(request.getCreateDTO()));
     }
 
-    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/login", consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "", notes = "Login")
-    public UserResponse login(@Valid @RequestBody CreateUserRequest request) {
-        return new UserResponse(idGenerator.getString(), userCommandService.login(request.getCreateDTO()));
+    public UserResponse login(@RequestParam("username") String userName, @RequestParam("password") String password) {
+        return new UserResponse(idGenerator.getString(), userCommandService.login(userName, password));
     }
 
     @GetMapping(value = "/all", consumes = MediaType.ALL_VALUE)

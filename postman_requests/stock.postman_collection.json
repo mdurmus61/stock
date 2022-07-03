@@ -71,8 +71,19 @@
 				"method": "POST",
 				"header": [],
 				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"createDTO\": \r\n        {\r\n            \"userName\": \"mustafa\",\r\n            \"password\": \"1234567\"\r\n        }\r\n    \r\n}",
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "username",
+							"value": "mustafa",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "1234567",
+							"type": "text"
+						}
+					],
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,9 +129,55 @@
 		},
 		{
 			"name": "Create Image",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
 				"auth": {
-					"type": "noauth"
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
 				},
 				"method": "POST",
 				"header": [],
@@ -157,7 +214,47 @@
 		},
 		{
 			"name": "Create Image 2",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -193,7 +290,47 @@
 		},
 		{
 			"name": "Update Image",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -229,7 +366,47 @@
 		},
 		{
 			"name": "Get Image By Code",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -251,7 +428,47 @@
 		},
 		{
 			"name": "Create Product",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -281,7 +498,47 @@
 		},
 		{
 			"name": "Update Product",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -311,7 +568,47 @@
 		},
 		{
 			"name": "Get Product By Type and Name",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -334,7 +631,47 @@
 		},
 		{
 			"name": "Get All Products",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -355,7 +692,47 @@
 		},
 		{
 			"name": "Create Rate USD-EUR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -385,7 +762,47 @@
 		},
 		{
 			"name": "Create Rate STR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -415,7 +832,47 @@
 		},
 		{
 			"name": "Update Rate",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -445,7 +902,47 @@
 		},
 		{
 			"name": "Get Rate By Currency",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -467,7 +964,47 @@
 		},
 		{
 			"name": "Get All Rates",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -488,7 +1025,47 @@
 		},
 		{
 			"name": "Create Warehouse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "POST",
 				"header": [],
 				"body": {
@@ -518,7 +1095,47 @@
 		},
 		{
 			"name": "Get Warehouse By Code",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -540,7 +1157,47 @@
 		},
 		{
 			"name": "Get Warehouse By District",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -562,7 +1219,47 @@
 		},
 		{
 			"name": "Get Warehouse By City",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {
@@ -584,7 +1281,47 @@
 		},
 		{
 			"name": "Get All Warehouse",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.sendRequest({\r",
+							"    url: \"http://localhost:9061/api/user/login\",\r",
+							"    method: 'POST',\r",
+							"    header: {\r",
+							"        'Accept': 'application/json',\r",
+							"        'Content-Type': 'application/json'\r",
+							"    },\r",
+							"    body: {\r",
+							"        mode: 'urlencoded',\r",
+							"        urlencoded: [\r",
+							"            {key: 'username', value: 'mustafa'},\r",
+							"            {key: 'password', value: '1234567'}\r",
+							"        ]\r",
+							"    }\r",
+							"},\r",
+							"    (err, res) => {\r",
+							"        // Set BEARERTOKEN\r",
+							"        pm.globals.set(\"BEARERTOKEN\", res.json().user.token)\r",
+							"        \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{BEARERTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
 				"method": "GET",
 				"header": [],
 				"url": {

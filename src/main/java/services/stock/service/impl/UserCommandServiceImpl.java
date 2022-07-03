@@ -51,12 +51,12 @@ public class UserCommandServiceImpl implements UserCommandService {
     }
 
     @Override
-    public UserDTO login(UserDTO dto) {
-        User user = userRepository.findByUserName(dto.getUserName()).orElseThrow(() -> new UsernameNotFoundException("User Not Found with userName: " + dto.getUserName()));
-        if(!dto.getPassword().equals(PasswordUtil.decrypt(user.getPassword())))
-            throw new StockException("LOGIN", "LOGIN", "password incorrect : " + dto.getPassword());
+    public UserDTO login(String username, String password) {
+        User user = userRepository.findByUserName(username).orElseThrow(() -> new UsernameNotFoundException("User Not Found with userName: " + username));
+        if(!password.equals(PasswordUtil.decrypt(user.getPassword())))
+            throw new StockException("LOGIN", "LOGIN", "password incorrect : " + password);
 
-        String token = JwtUtils.getJWTToken(user.getId(), user.getUserName(), dto.getPassword());
+        String token = JwtUtils.getJWTToken(user.getId(), user.getUserName(), password);
         UserDTO userDTO = user.toDTO();
         userDTO.setToken(token);
         return userDTO;
