@@ -1,6 +1,5 @@
 package services.stock.entity;
 
-import services.stock.dto.ProductDTO;
 import services.stock.dto.WarehouseDTO;
 import services.stock.entity.base.BaseEntity;
 import services.stock.entity.metadata.District;

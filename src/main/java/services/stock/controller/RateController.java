@@ -4,19 +4,19 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import services.stock.controller.constants.ApiEndpoints;
-import services.stock.exception.StockException;
 import services.stock.request.CreateRatesRequest;
-import services.stock.request.CreateUserRequest;
 import services.stock.response.CreateRatesResponse;
 import services.stock.service.RateCommandService;
 import services.stock.service.RateQueryService;
 import services.stock.util.IdGenerator;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.io.IOException;
 
 @RestController
 @RequestMapping(value = ApiEndpoints.RATE_API, produces = { ApiEndpoints.RESPONSE_CONTENT_TYPE}, consumes = {
@@ -50,7 +50,9 @@ public class RateController {
     @GetMapping(value = "/get/{CURRENCY_CODE}", consumes = MediaType.ALL_VALUE)
     @ResponseStatus(HttpStatus.OK)
     @ApiOperation(value = "", notes = "Get Rate By Code")
-    public CreateRatesResponse getRateByCode(@PathVariable("CURRENCY_CODE") String currencyCode){
+    public CreateRatesResponse getRateByCode(HttpServletRequest httpServletRequest, @PathVariable("CURRENCY_CODE") String currencyCode){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        SecurityContext ctx = SecurityContextHolder.getContext();
         return new CreateRatesResponse(idGenerator.getString(), queryService.getRateByCode(currencyCode));
     }
 

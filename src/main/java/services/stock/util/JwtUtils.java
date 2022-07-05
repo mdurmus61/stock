@@ -10,20 +10,23 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Component
 public class JwtUtils {
     private static final Logger LOGGER = LoggerFactory.getLogger(JwtUtils.class);
+    private static final String PREFIX = "Bearer ";
 
-    public static String getJWTToken(Long id, String username, String password) {
+    public static String getJWTToken(Long id, String username, String password, Set<String> roles) {
         String secretKey = "mySecretKey";
         List<GrantedAuthority> grantedAuthorities = AuthorityUtils
-                .commaSeparatedStringToAuthorityList("ROLE_USER");
+                .commaSeparatedStringToAuthorityList(String. join(",", roles));
 
-        return Jwts
+        return PREFIX +  Jwts
                 .builder()
-                .setId(id + password)
+                .setId(UUID.randomUUID().toString())
                 .setSubject(username)
                 .claim("authorities",
                         grantedAuthorities.stream()

@@ -16,6 +16,7 @@ import services.stock.util.JwtUtils;
 
 import javax.transaction.Transactional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -56,7 +57,7 @@ public class UserCommandServiceImpl implements UserCommandService {
         if(!password.equals(PasswordUtil.decrypt(user.getPassword())))
             throw new StockException("LOGIN", "LOGIN", "password incorrect : " + password);
 
-        String token = JwtUtils.getJWTToken(user.getId(), user.getUserName(), password);
+        String token = JwtUtils.getJWTToken(user.getId(), user.getUserName(), password, user.getRoles().stream().map(Role::getName).collect(Collectors.toSet()));
         UserDTO userDTO = user.toDTO();
         userDTO.setToken(token);
         return userDTO;

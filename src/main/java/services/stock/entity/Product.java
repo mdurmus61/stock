@@ -2,7 +2,6 @@ package services.stock.entity;
 
 import services.stock.dto.ProductDTO;
 import services.stock.entity.base.BaseEntity;
-import services.stock.repository.ImageRepository;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
